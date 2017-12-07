@@ -27,3 +27,11 @@ We will use the docker engine to connect to the underlying CUDA drivers, but thi
 
 * run the file getdrivers_dockerce.sh by ```sh getdrivers_dockerce.sh```
 * test the install by running ``` docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi ```
+
+## Build the Deep Learning Environment using Docker
+We are going to use [Deepo](https://hub.docker.com/r/ufoym/deepo/) to configure our keras and tensor flow environments.  check out the github page here [Deepo Github](https://github.com/ufoym/deepo).  They have a large number of deep learning optoins (see the grid of choices) but for our purposes we will use the all-in-one with jupyter stack.
+* pull the image and mount to the current volume ```nvidia-docker run -it -p 8888:8888 -v $(pwd):/root ufoym/deepo:all-py36-jupyter jupyter notebook --no-browser --ip=0.0.0.0 --allow-root --NotebookApp.token="Normal" --notebook-dir='/root' ```
+* Go to the IP Address of your machine at port 8888 (i.e. http://IPaddr:8888) and use password Normal
+
+## Test that your code worked by building a keras example
+* We pull a LSTM example with timings that should match the K40 timings (since we only get half a board... how silly) from [keras examples](https://github.com/fchollet/keras/blob/master/examples/imdb_cnn.py).  You can find this code in an ipython notebook under examples folder.
