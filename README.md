@@ -34,4 +34,5 @@ We are going to use [Deepo](https://hub.docker.com/r/ufoym/deepo/) to configure 
 * Go to the IP Address of your machine at port 8888 (i.e. http://IPaddr:8888) and use password Normal
 
 ## Test that your code worked by building a keras example
-* We pull a LSTM example with timings that should match the K40 timings (since we only get half a board... how silly) from [keras examples](https://github.com/fchollet/keras/blob/master/examples/imdb_cnn.py).  You can find this code in an ipython notebook under examples folder.
+* We pull a LSTM example with timings that should match the K40 timings (since we only get half a board... how silly) from [keras examples](https://github.com/fchollet/keras/blob/master/examples/imdb_cnn.py).  You can find this code in an ipython notebook folder under examples folder.
+* Additionally, all of the keras examples were copied into a folder under examples.
