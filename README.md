@@ -18,6 +18,7 @@ We port over the course content to be run on google cloud instead of AWS.  This 
         * terminal in as root for all commands below by running ``` sudo su ```
     * As a note, you will be using a corporate account which already has added firewall policies to unblock ports 80,443,8888 so you will not need to do that
 * Clone this repository to gain access to the build scripts
+    * This repo contains a submodule to fast.ai repository, so you'll need to get that too ```git submodule update --init --recursive```
     * Following the documentation for [Creating a GPU instance](https://cloud.google.com/compute/docs/gpus/add-gpus#create-new-gpu-instance)
         * Run the cuda_bare_metal.sh install file found in the setup folder ``` sh cuda_bare_metal.sh ```
         * Verify your install by running at the command line ``` nvidia-smi ```
