@@ -5,10 +5,10 @@ We port over the course content to be run on google cloud instead of AWS.  This 
 
 ## VM machine and GPU and setup
 
-* Go to the google cloud [console](https://console.cloud.google.com) and log into the platform 
+* Go to the google cloud [console](https://console.cloud.google.com) and log into the platform
 * Under compute engine => VM instances
 * Under the compute Engine dashboard select create instance
-    * Review which regions GPUs are available in [GPU Available Regions](https://cloud.google.com/compute/docs/gpus/) 
+    * Review which regions GPUs are available in [GPU Available Regions](https://cloud.google.com/compute/docs/gpus/)
     * Pick a VM from that zone (i.e. us-east1-c is suitable)
     * Select a 1 vCPU system and click customize to GPU tab below
     * Select NVIDIA Tesla K80 (which is really a K40 board (or 1/2 a K80) if you do 1 GPU... talk about bad advertising)
@@ -36,3 +36,20 @@ We are going to use [Deepo](https://hub.docker.com/r/ufoym/deepo/) to configure 
 ## Test that your code worked by building a keras example
 * We pull a LSTM example with timings that should match the K40 timings (since we only get half a board... how silly) from [keras examples](https://github.com/fchollet/keras/blob/master/examples/imdb_cnn.py).  You can find this code in an ipython notebook folder under examples folder.
 * Additionally, all of the keras examples were copied into a folder under examples.
+
+
+# Azure Notes:
+## Link pip
+* ```!sudo ln -s /anaconda/bin/pip /usr/local/sbin/pip```
+## Use Python 2 kernel
+## Downgrade keras
+* ```!pip uninstall -y keras
+!pip install keras==1.2.2```
+## Get cats and dogs data, and put in correct location
+* ```cd /data
+wget http://files.fast.ai/data/dogscats.zip
+unzip -q dogscats.zip```
+## Set appropriate path in path variable in notebook
+* ```path = "/data/dogscats/sample/"```
+## OOM Errors:
+* If you have an OOM error then check ```nvidia-smi``` and kill all processes using the GPU, then try running your code again. If you are using K-80 then the code for lesson 1 should be fine with batch sizes at least as large as 128.
