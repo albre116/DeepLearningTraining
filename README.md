@@ -39,18 +39,10 @@ We are going to use [Deepo](https://hub.docker.com/r/ufoym/deepo/) to configure 
 * Additionally, all of the keras examples were copied into a folder under examples.
 
 
-# Azure Notes:
-## Link pip
-* ```!sudo ln -s /anaconda/bin/pip /usr/local/sbin/pip```
-## Use Python 2 kernel
-## Downgrade keras
-* ```!pip uninstall -y keras
-!pip install keras==1.2.2```
-## Get cats and dogs data, and put in correct location
-* ```cd /data
-wget http://files.fast.ai/data/dogscats.zip
-unzip -q dogscats.zip```
-## Set appropriate path in path variable in notebook
-* ```path = "/data/dogscats/sample/"```
-## OOM Errors:
-* If you have an OOM error then check ```nvidia-smi``` and kill all processes using the GPU, then try running your code again. If you are using K-80 then the code for lesson 1 should be fine with batch sizes at least as large as 128.
+## Azure Notes:
+* Link pip ```!sudo ln -s /anaconda/bin/pip /usr/local/sbin/pip```
+* Use Python 2 kernel
+* Downgrade keras ```!pip uninstall -y keras\ !pip install keras==1.2.2```
+* Get cats and dogs data, and put in correct location ```cd /data\ wget http://files.fast.ai/data/dogscats.zip\ unzip -q dogscats.zip```
+* Set appropriate path in path variable in notebook ```path = "/data/dogscats/sample/"```
+* OOM Errors: If you have an OOM error then check ```nvidia-smi``` and kill all processes using the GPU, then try running your code again. If you are using K-80 then the code for lesson 1 should be fine with batch sizes at least as large as 128.
