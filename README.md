@@ -29,7 +29,12 @@ We will use the docker engine to connect to the underlying CUDA drivers, but thi
 * run the file getdrivers_dockerce.sh by ```sh getdrivers_dockerce.sh```
 * test the install by running ``` docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi ```
 
-## Build the Deep Learning Environment using Docker
+## Build the Deep Learning Environment using Docker for Part 1
+there is a really good repository and instructions for doing a full docker run of the course materials by [anurag](https://github.com/anurag/fastai-course-1).  You can simply take a pre-built docker stack (with the fast ai code inside the docker container) and run that by using the following command:
+* ``` nvidia-docker run -d -it -p 8888:8888 -v $(pwd):/home/docker/data deeprig/fastai-course-1 ```
+* the password to the notebook is 'dl_course'
+
+## Build the Deep Learning Environment using Docker for Part 2
 We are going to use [Deepo](https://hub.docker.com/r/ufoym/deepo/) to configure our keras and tensor flow environments.  check out the github page here [Deepo Github](https://github.com/ufoym/deepo).  They have a large number of deep learning optoins (see the grid of choices) but for our purposes we will use the all-in-one with jupyter stack.
 * Important, for part 1 of the course you must use python 2.7 or the code will not run and you will need to back down keras install version
 * pull the image and mount to the current volume ```nvidia-docker run -it -d -p 8888:8888 -v $(pwd):/root ufoym/deepo:all-py27-jupyter jupyter notebook --no-browser --ip=0.0.0.0 --allow-root --NotebookApp.token="Normal" --notebook-dir='/root'```
