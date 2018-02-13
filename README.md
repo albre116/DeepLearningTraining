@@ -31,8 +31,9 @@ We will use the docker engine to connect to the underlying CUDA drivers, but thi
 
 ## Build the Deep Learning Environment using Docker for Part 1
 Fast AI was finally migrated to python 3, but the available docker builds have some issues.  I've taken on of those builds from [Paperspace](https://github.com/Paperspace/fastai-docker) and have performed slight modifications.  You'll need to build using the build shell in the folder:
+
 *```sh build.sh```
-* ``` docker run --runtime=nvidia -d -p 8888:8888 robinson/fastai-course-1 ```
+*``` docker run --runtime=nvidia -d -p 8888:8888 robinson/fastai-course-1 ```
 * the password to the notebook is 'dl_course'
 
 ## Build the Deep Learning Environment using Docker for Part 2
