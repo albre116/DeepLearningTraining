@@ -50,7 +50,9 @@ RUN unzip -d . dogscats.zip
 RUN rm dogscats.zip
 
 RUN ln -s /data/ /notebooks/courses/dl1/
-#RUN ls -la /notebooks/courses/dl1/data/
+RUN mkdir /MountData
+RUN mkdir /notebooks/courses/dl1/MountData
+RUN ln -s /MountData/ /notebooks/courses/dl1/MountData/
 
 RUN chmod -R a+w /notebooks
 WORKDIR /notebooks
