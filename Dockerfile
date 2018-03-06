@@ -56,6 +56,5 @@ RUN ln -s /MountData/ /notebooks/courses/dl1/MountData/
 
 RUN chmod -R a+w /notebooks
 WORKDIR /notebooks
-COPY jupyter_notebook_config.py ~/.jupyter/
 
-CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--no-browser", "--allow-root"]
+CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--no-browser", "--allow-root","--NotebookApp.token='Normal'"]
