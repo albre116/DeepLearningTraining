@@ -34,7 +34,7 @@ Fast AI was finally migrated to python 3, but the available docker builds have s
 
 * ```sh build.sh```
 * ``` docker run --runtime=nvidia -d -p 8888:8888 -v $(pwd):/MountData robinson/fastai-course-1  ```
-* you'll need to get the notebook password through exec into the container and get the token for the running notebook
+* the notebook password is set as ``` Normal ``` in the docker run command in the file 
 
 ## Build the Deep Learning Environment using Docker for Part 2
 We are going to use [Deepo](https://hub.docker.com/r/ufoym/deepo/) to configure our keras and tensor flow environments.  check out the github page here [Deepo Github](https://github.com/ufoym/deepo).  They have a large number of deep learning optoins (see the grid of choices) but for our purposes we will use the all-in-one with jupyter stack.
