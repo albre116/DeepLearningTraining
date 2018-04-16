@@ -102,3 +102,6 @@ ENV/
 
 # data files
 /DATA
+
+# build files
+*.deb
