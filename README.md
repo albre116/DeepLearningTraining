@@ -36,6 +36,6 @@ Fast AI was finally migrated to python 3, but the available docker builds have s
 #### If you want to build the docker image yourself (optional do not run)
 * Do Not Run, take a long time: ```sh build.sh```
 #### Get a Pre-Build Image from Docker Hub and Launch the Notebook (much faster)
-* ``` docker run --runtime=nvidia -d -p 8888:8888 -v $(pwd):/MountData albrmar/deeplearningtraining  ```
+* ``` docker run --runtime=nvidia -d -p 8888:8888 -v $(pwd):/MountData albrmar/deeplearningtraining:v1  ```
 * the notebook password is set as ``` Normal ``` in the docker run command in the file 
 
