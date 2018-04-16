@@ -22,7 +22,8 @@ Training Materials for Deep Learning on Google Cloud with Fast AI ([fastai cours
     * As a note, you will be using a corporate account which already has added firewall policies to unblock port 8888 so you will not need to do that
 * Clone this repository to gain access to the build scripts
     * Following the documentation for [Creating a GPU instance](https://cloud.google.com/compute/docs/gpus/add-gpus#create-new-gpu-instance)
-        * Run the cuda_bare_metal.sh install file found in the setup folder ``` sh setup/cuda_bare_metal.sh ```
+        * Change dir into the project ``` cd DeepLearningTraining ```
+	* Run the cuda_bare_metal.sh install file found in the setup folder ``` sh setup/cuda_bare_metal.sh ```
         * Verify your install by running at the command line ``` nvidia-smi ```
 ### NVIDIA Docker Install
 We will use the docker engine to connect to the underlying CUDA drivers, but this requires and additional driver set that makes the connection between docker and the bare metal CUDA drivers.
