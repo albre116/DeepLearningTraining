@@ -34,8 +34,17 @@ We will use the docker engine to connect to the underlying CUDA drivers, but thi
 ### Build the Deep Learning Environment using Docker for Part 1
 Fast AI was finally migrated to python 3, but the available docker builds have some issues.  I've taken on of those builds from [Paperspace](https://github.com/Paperspace/fastai-docker) and have performed slight modifications.  You'll need to build using the build shell in the folder:
 #### If you want to build the docker image yourself (optional do not run)
-* Do Not Run, take a long time: ```sh build.sh```
+* Do Not Run, will take a long time: ```sh build.sh```
+
 #### Get a Pre-Build Image from Docker Hub and Launch the Notebook (much faster)
 * ``` docker run --runtime=nvidia -d -p 8888:8888 -v $(pwd):/MountData albrmar/deeplearningtraining:v1  ```
 * the notebook password is set as ``` Normal ``` in the docker run command in the file 
+
+#### Course Materials
+* The course notebooks once in the jupyter notebook are under ```./courses/dl1 ```
+
+#### Hosting your own scripts and checking them in for all to use
+* You have probably noticed that there is a mounted volume to the working directory that is soft linked to ```./courses/dl1/MountData ```
+* Save your scripts in an examples folder if you want to commit and share
+* If you want to run custom data you'll need to do that from that directory too.  See the example in the ipynb folder
 
