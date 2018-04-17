@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-docker build -t robinson/fastai-course-1 .
+docker build -t albrmar/deeplearningtraining .

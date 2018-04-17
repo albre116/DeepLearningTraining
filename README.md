@@ -25,6 +25,7 @@ Training Materials for Deep Learning on Google Cloud with Fast AI ([fastai cours
         * Change dir into the project ``` cd DeepLearningTraining ```
 	* Run the cuda_bare_metal.sh install file found in the setup folder ``` sh setup/cuda_bare_metal.sh ```
         * Verify your install by running at the command line ``` nvidia-smi ```
+
 ### NVIDIA Docker Install
 We will use the docker engine to connect to the underlying CUDA drivers, but this requires and additional driver set that makes the connection between docker and the bare metal CUDA drivers.
 ![nvidia-gpu-docker](https://cloud.githubusercontent.com/assets/3028125/12213714/5b208976-b632-11e5-8406-38d379ec46aa.png)
@@ -32,20 +33,25 @@ We will use the docker engine to connect to the underlying CUDA drivers, but thi
 * run the file getdrivers_dockerce.sh by ```sh setup/getdrivers_dockerce.sh```
 * test the install by running ``` docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi ```
 
+### Get the data files the course will utilize 
+* The data files were intentionally seperated from the docker image to reduce size and soft linked internally through a 2nd mount.  There is a shell script that needs to be run to grab the data ``` sh getdata.sh ```
+
 ### Build the Deep Learning Environment using Docker for Part 1
 Fast AI was finally migrated to python 3, but the available docker builds have some issues.  I've taken on of those builds from [Paperspace](https://github.com/Paperspace/fastai-docker) and have performed slight modifications.  You'll need to build using the build shell in the folder:
 #### If you want to build the docker image yourself (optional do not run)
 * Do Not Run, will take a long time: ```sh build.sh```
 
 #### Get a Pre-Build Image from Docker Hub and Launch the Notebook (much faster)
-* ``` docker run --runtime=nvidia -d -p 8888:8888 -v $(pwd):/MountData albrmar/deeplearningtraining:v1  ```
+* first go up one directory level becasue we are going to make 2 volume mounts.  One for the source code, the other for the course data you downloaded in the earlier step ``` cd .. ```
+* Run the docker container with appropriate volume mounts ``` docker run --runtime=nvidia -d -p 8888:8888 -v $(pwd)/DeepLearningTraining:/DeepLearningTraining -v $(pwd)/data:/data  albrmar/deeplearningtraining:v1  ```
 * the notebook password is set as ``` Normal ``` in the docker run command in the file 
 
-#### Course Materials
+### Course Materials
 * The course notebooks once in the jupyter notebook are under ```./courses/dl1 ```
 
-#### Hosting your own scripts and checking them in for all to use
-* You have probably noticed that there is a mounted volume to the working directory that is soft linked to ```./courses/dl1/MountData ```
+### Hosting your own scripts and checking them in for all to use
+* You have probably noticed that there is a mounted volume to the working directory that is soft linked to ```./courses/dl1/DeepLearningTraining ```
 * Save your scripts in an examples folder if you want to commit and share
 * If you want to run custom data you'll need to do that from that directory too.  See the example in the ipynb folder
+* Also, any data you put in your local data folder will show up under ```./courses/dl1/data ```
 

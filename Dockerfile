@@ -45,14 +45,13 @@ CMD source ~/.bashrc
 
 WORKDIR /data
 
-RUN curl http://files.fast.ai/data/dogscats.zip --output dogscats.zip
-RUN unzip -d . dogscats.zip 
-RUN rm dogscats.zip
+#RUN curl http://files.fast.ai/data/dogscats.zip --output dogscats.zip
+#RUN unzip -d . dogscats.zip 
+#RUN rm dogscats.zip
 
 RUN ln -s /data/ /notebooks/courses/dl1/
-RUN mkdir /MountData
-RUN mkdir /notebooks/courses/dl1/MountData
-RUN ln -s /MountData/ /notebooks/courses/dl1/MountData/
+RUN mkdir /DeepLearningTraining
+RUN ln -s /DeepLearningTraining/ /notebooks/courses/dl1/
 
 RUN chmod -R a+w /notebooks
 WORKDIR /notebooks
