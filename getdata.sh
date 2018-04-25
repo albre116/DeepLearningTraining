@@ -10,6 +10,18 @@ if [ ! -e ../data/dogscats ]
 		cd ../data && rm dogscats.zip
 fi
 
+
+### get rossman data
+if [ ! -e ../data/rossmann ]
+        then
+                cd ../data && curl http://files.fast.ai/part2/lesson14/rossmann.tgz  --output rossmann.tgz 
+                cd ../data && mkdir rossmann 
+		cd ../data && mv rossmann.tgz rossmann/
+                cd ../data/rossmann && tar -xzf rossmann.tgz
+		cd ..
+fi
+
+
 # get movielens data
 if [ ! -e ../data/ml-latest-small ]
         then
