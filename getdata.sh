@@ -29,3 +29,15 @@ if [ ! -e ../data/ml-latest-small ]
 		cd ../data && unzip -d . ml-latest-small.zip 
 		cd ../data && rm ml-latest-small.zip
 fi
+
+# get imdb data
+if [ ! -e ../data/aclImdb ]
+        then
+                cd ../data && curl http://files.fast.ai/data/aclImdb.tgz --output aclImdb.tgz
+		cd ../data && mkdir aclImdb
+                cd ../data && mv aclImdb.tgz aclImdb/
+                cd ../data/aclImdb && tar -xzf aclImdb.tgz
+                cd ..
+
+fi
+
