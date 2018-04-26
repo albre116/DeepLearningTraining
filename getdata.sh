@@ -34,9 +34,7 @@ fi
 if [ ! -e ../data/aclImdb ]
         then
                 cd ../data && curl http://files.fast.ai/data/aclImdb.tgz --output aclImdb.tgz
-		cd ../data && mkdir aclImdb
-                cd ../data && mv aclImdb.tgz aclImdb/
-                cd ../data/aclImdb && tar -xzf aclImdb.tgz
+                cd ../data && tar -xzf aclImdb.tgz
                 cd ..
 
 fi
