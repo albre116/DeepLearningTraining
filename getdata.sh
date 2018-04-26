@@ -30,6 +30,7 @@ if [ ! -e ../data/ml-latest-small ]
 		cd ../data && rm ml-latest-small.zip
 fi
 
+<<<<<<< HEAD
 # get imdb data
 if [ ! -e ../data/aclImdb ]
         then
@@ -37,5 +38,12 @@ if [ ! -e ../data/aclImdb ]
                 cd ../data && tar -xzf aclImdb.tgz
                 cd ..
 
+=======
+### get rossman data
+if [ ! -e ../data/aclImdb ]
+        then
+                cd ../data && curl http://files.fast.ai/data/aclImdb.tgz  --output aclImdb.tgz 
+                cd ../data && tar -xzf aclImdb.tgz
+>>>>>>> c9039ef73fea2000e0bd2b6947fdfc9d4b6f3149
 fi
 
