@@ -38,3 +38,11 @@ if [ ! -e ../data/aclImdb ]
                 cd ..
 fi
 
+# get trump tweet data
+if [ ! -e ../data/trump_tweet_data_archive ]
+        then
+                cd ../data && git clone https://github.com/bpb27/trump_tweet_data_archive
+                cd ../data/trump_tweet_data_archive && unzip 'condensed_*'
+                find . -type f -not -name '*.json' -delete
+                cd ../..
+fi
