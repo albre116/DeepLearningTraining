@@ -59,7 +59,7 @@ if [ ! -e ../data/trump_tweet_data_archive ]
                 cd ../data && git clone https://github.com/bpb27/trump_tweet_data_archive
                 cd ../data/trump_tweet_data_archive && unzip 'condensed_*'
                 find . -type f -not -name '*.json' -delete
-                cd ../..
+                cd ..
 fi
 
 
