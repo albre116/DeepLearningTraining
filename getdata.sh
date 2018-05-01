@@ -51,6 +51,7 @@ if [ ! -e ../data/cifar ]
 		tar -xzf cifar.tgz
 		rm cifar.tgz
                 cd ..
+fi
 
 # get trump tweet data
 if [ ! -e ../data/trump_tweet_data_archive ]
