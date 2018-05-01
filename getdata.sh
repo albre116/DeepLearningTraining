@@ -60,3 +60,11 @@ if [ ! -e ../data/trump_tweet_data_archive ]
                 find . -type f -not -name '*.json' -delete
                 cd ../..
 fi
+
+
+# get trump campaign speech archive
+if [ ! -e ../data/corpus ]
+        then
+                cd ../data && git clone https://github.com/unendin/Trump_Campaign_Corpus.git corpus
+                cd ..
+fi
