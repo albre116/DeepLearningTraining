@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
-mkdir ../data
+if [ ! -e ../data ]
+    then mkdir ../data
+fi
+
 apt install unzip -y
 
 ### get dogs cats data if it doesn't exist
@@ -53,13 +56,14 @@ if [ ! -e ../data/cifar ]
                 cd ..
 fi
 
+
 # get trump tweet data
 if [ ! -e ../data/trump_tweet_data_archive ]
         then
-                cd ../data && git clone https://github.com/bpb27/trump_tweet_data_archive
+                cd data && git clone https://github.com/bpb27/trump_tweet_data_archive
                 cd ../data/trump_tweet_data_archive && unzip 'condensed_*'
                 find . -type f -not -name '*.json' -delete
-                cd ..
+                cd ../..
 fi
 
 
@@ -68,4 +72,19 @@ if [ ! -e ../data/corpus ]
         then
                 cd ../data && git clone https://github.com/unendin/Trump_Campaign_Corpus.git corpus
                 cd ..
+fi
+
+# get pascal data
+if [ ! -e ../data/pascal ]
+        then
+            cd ../data
+            mkdir pascal && cd pascal
+            curl -OL http://pjreddie.com/media/files/VOCtrainval_06-Nov-2007.tar
+            curl -OL https://storage.googleapis.com/coco-dataset/external/PASCAL_VOC.zip
+            tar -xf VOCtrainval_06-Nov-2007.tar
+            unzip PASCAL_VOC.zip
+            mv PASCAL_VOC/*.json .
+            rmdir PASCAL_VOC
+
+            cd ../..
 fi
