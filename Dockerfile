@@ -1,4 +1,4 @@
-FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
+FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04 AS fastai
 
 LABEL com.nvidia.volumes.needed="nvidia_driver"
 
@@ -40,8 +40,8 @@ ENV LD_LIBRARY_PATH /usr/local/nvidia/lib:/usr/local/nvidia/lib64
 ENV USER fastai
 
 
-CMD source activate fastai
-CMD source ~/.bashrc
+RUN /bin/bash -c "source /opt/conda/bin/activate fastai"
+RUN /bin/bash -c "source ~/.bashrc"
 
 WORKDIR /data
 
